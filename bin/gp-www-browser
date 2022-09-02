@@ -1,0 +1,5 @@
+#!/usr/bin/bash
+
+# Wrapper script to set the default web browser
+
+gp preview --external $*

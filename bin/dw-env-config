@@ -1,0 +1,15 @@
+#!/usr/bin/bash
+
+BRANCH=$(git symbolic-ref HEAD 2>/dev/null | sed -e 's|^refs/heads/||')
+
+for B in $BRANCH default
+do
+    # Only want to configure aws-config on first match.
+    if [[ ! -v AWS_CONFIG && -f env/aws-config.$B ]] 
+    then
+        AWS_CONFIG=env/aws-config.$B
+        echo installing $AWS_CONFIG
+        [[ ! -d ~/.aws ]] && mkdir ~/.aws
+        echo -e "cat <<END_OF_TEXT\n$(cat ${AWS_CONFIG} )\nEND_OF_TEXT" | bash > ~/.aws/config
+    fi
+done
