@@ -19,5 +19,6 @@ RUN sudo ./aws/install
 RUN rm -r awscliv2.zip ./aws
 
 COPY bin .
+RUN update-alternatives --install /usr/bin/www-browser www-browser $WORKDIR/bin/gp-www-browser  210
 
 CMD ["bash"]
