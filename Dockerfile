@@ -18,4 +18,6 @@ RUN unzip awscliv2.zip
 RUN sudo ./aws/install
 RUN rm -r awscliv2.zip ./aws
 
+Add bin .
+
 CMD ["bash"]

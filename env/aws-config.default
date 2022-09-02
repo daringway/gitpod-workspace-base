@@ -1,0 +1,7 @@
+[profile default]
+sso_start_url = ${AWS_SSO_START_URL:-https://daringway.awsapps.com/start}
+sso_region = ${AWS_SSO_REGION:-us-east-2}
+sso_account_id = ${AWS_SSO_ACCOUNT_ID:-446529099398}
+sso_role_name = ${AWS_SSO_ROLE_NAME:-AWSAdministratorAccess}
+region = ${REGION:-us-east-2}
+output = json

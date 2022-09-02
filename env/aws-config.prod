@@ -1,0 +1,8 @@
+[profile default]
+sso_start_url = https://knotlove.awsapps.com/start
+sso_region = us-east-2
+sso_account_id = 171011828085
+sso_role_name = AWSAdministratorAccess
+region = us-east-2
+output = json
+test = ${WD_TEST}
