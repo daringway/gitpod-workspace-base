@@ -1,0 +1,33 @@
+#!/usr/bin/bash
+
+BRANCH=$(git symbolic-ref HEAD 2>/dev/null | sed -e 's|^refs/heads/||')
+
+SEARCH_PATH="env /usr/daring/env"
+
+function findFile {
+    FILE=$1
+    for EXT in "+${BRANCH}" default ""
+    do
+        for DIR in $SEARCH_PATH
+        do
+            if [[ -f "${DIR}/${FILE}${EXT}" ]]
+            then
+                echo ${DIR}/${FILE}${EXT}
+                return 0
+            fi
+        done
+    done
+    return 1
+}
+
+# *** Config ~/.aws/config
+if [[ -v AWS_SSO_START_URL || -v ENV_AWS_CONFIG ]]
+then
+    if AWS_CONFIG=$(findFile aws-config)
+    then
+        echo installing $AWS_CONFIG
+        [[ ! -d ~/.aws ]] && mkdir ~/.aws
+        echo -e "cat <<END_OF_TEXT\n$(cat ${AWS_CONFIG} )\nEND_OF_TEXT" | bash > ~/.aws/config
+    fi
+fi
+

@@ -1,0 +1,11 @@
+#!/usr/bin/bash
+
+# *** Config node
+if [[ -v ENV_NODE_VERSION ]]
+then
+  source "$NVM_DIR"/nvm.sh && \
+  nvm install ${ENV_NODE_VERSION} && \
+  nvm use $ENV_NODE_VERSION && \
+  nvm alias default ${ENV_NODE_VERSION}
+fi
+
