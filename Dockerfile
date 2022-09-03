@@ -18,8 +18,8 @@ RUN unzip awscliv2.zip
 RUN sudo ./aws/install
 RUN rm -r awscliv2.zip ./aws
 
-COPY bin /usr/bin
-COPY env /usr/daring/env
+COPY bin $WORKDIR/bin
+COPY env $WORKDING/daring/env
 
 RUN sudo /usr/bin/update-alternatives --install /usr/bin/www-browser www-browser $WORKDIR/bin/gp-www-browser  210
 
