@@ -19,7 +19,7 @@ RUN sudo ./aws/install
 RUN rm -r awscliv2.zip ./aws
 
 COPY bin $WORKDIR/bin
-COPY env $WORKDING/daring/env
+COPY env $WORKDIR/daring/env
 
 RUN sudo /usr/bin/update-alternatives --install /usr/bin/www-browser www-browser $WORKDIR/bin/gp-www-browser  210
 
