@@ -1,6 +1,7 @@
 #!/usr/bin/bash
 
 ENV_NODE_VERSION=${1:-"--lts"}
+ENV_YARN_VERSION=${2:-latest}
 
 # Install nvm
 curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.1/install.sh | bash
@@ -12,3 +13,15 @@ nvm use $ENV_NODE_VERSION
 # I think this is needed to get around the .bashrc only being used in execute mode
 echo "nvm use default &>/dev/null" >> ~/.bashrc.d/51-nvm-fix
 
+# Install Yarn
+
+curl -sS https://dl.yarnpkg.com/debian/pubkey.gpg | sudo apt-key add -
+echo "deb https://dl.yarnpkg.com/debian/ stable main" | sudo tee /etc/apt/sources.list.d/yarn.list
+sudo apt update
+
+if [[ $ENV_YARN_VERSION == "latest" ]]
+then
+    sudo apt install --no-install-recommends yarn
+else
+    sudo apt install --no-install-recommends yarn@${ENV_YARN_VERSION}
+fi
