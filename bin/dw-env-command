@@ -20,8 +20,8 @@ function findFile {
     return 1
 }
 
-# *** Config ~/.aws/config
-if [[ -v AWS_SSO_START_URL || -v ENV_AWS_CONFIG ]]
+# *** Config ~/.aws/config if aws cli is installed
+if type aws
 then
     if AWS_CONFIG=$(findFile aws-config)
     then

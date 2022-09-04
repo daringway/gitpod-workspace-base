@@ -1,0 +1,13 @@
+#!/usr/bin/bash
+
+ENV_NODE_VERSION=${1:-"--lts"}
+
+# Install nvm
+curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.1/install.sh | bash
+
+source "$NVM_DIR"/nvm.sh && \
+nvm install ${ENV_NODE_VERSION} && \
+nvm use $ENV_NODE_VERSION && \
+nvm alias default ${ENV_NODE_VERSION}
+
+# echo "nvm use default &>/dev/null" >> ~/.bashrc.d/51-nvm-fix
