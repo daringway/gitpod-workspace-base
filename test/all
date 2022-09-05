@@ -1,0 +1,21 @@
+#!/usr/bin/bash
+
+export ENV_AWS_CLI_VERSION=latest
+export ENV_NODE_VERSION=latest
+export ENV_YARN_VERSION=latest
+env-install
+
+function fail {
+    echo $* 1>&2
+    echo *** FAILED ***
+    exit 1
+}
+
+. ~/.nvm/nvm.sh
+
+for COMM in aws node yarn
+do
+    type $COMM || fail $COMM failed to install
+done
+
+echo *** PASSED ***

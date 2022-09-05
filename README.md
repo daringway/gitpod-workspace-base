@@ -4,13 +4,11 @@
 See [trying out your dockerfile](https://www.gitpod.io/docs/config-docker) for details.
 ```
 docker build -f Dockerfile -t gitpod-dockerfile-test .
-docker run -it gitpod-dockerfile-test bash
+docker run -v $(pwd)/test:/test -it gitpod-dockerfile-test  /test/all
 ```
 
-Test the following installers from docker run
+Interactive check dockerfile after build
 ```
-export ENV_AWS_CLI_VERSION=latest
-export ENV_NODE_VERSION=16.16
-export ENV_YARN_VERSION=latest
-env-install
+docker run -v $(pwd)/test:/test -it gitpod-dockerfile-test  bash
 ```
+
