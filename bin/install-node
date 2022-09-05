@@ -1,12 +1,13 @@
 #!/usr/bin/bash
 
-ENV_NODE_VERSION=${1:-"--lts"}
-ENV_YARN_VERSION=${2:-latest}
+ENV_NODE_VERSION=${ENV_NODE_VERSION:-latest}
+ENV_YARN_VERSION=${ENV_YARN_VERSION:-latest}
 
 # Install nvm
 curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.1/install.sh | bash
 
 source "$HOME"/.nvm/nvm.sh
+
 nvm install ${ENV_NODE_VERSION}
 nvm use $ENV_NODE_VERSION
 

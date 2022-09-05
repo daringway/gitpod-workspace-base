@@ -1,0 +1,11 @@
+#!/usr/bin/bash
+
+if [[ -v ENV_AWS_CLI_VERSION ]]
+then
+    install-aws-cli $ENV_AWS_CLI_VERSION
+fi
+
+if [[ -v ENV_NODE_VERSION || -v ENV_YARN_VERSION ]]
+then
+    install-node ${ENV_NODE_VERSION:-latest} ${ENV_YARN_VERSION:-latest}
+fi
