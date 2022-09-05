@@ -2,12 +2,15 @@
 
 # Testing
 See [trying out your dockerfile](https://www.gitpod.io/docs/config-docker) for details.
-- docker build -f Dockerfile -t gitpod-dockerfile-test .
-- docker run -it gitpod-dockerfile-test bash
+```
+docker build -f Dockerfile -t gitpod-dockerfile-test .
+docker run -it gitpod-dockerfile-test bash
+```
 
-install-aws-cli
-command-aws-cli
-aws-cli-install
-aws-cli-command
-env-command
-env-init
+Test the following installers from docker run
+```
+export ENV_AWS_CLI_VERSION=latest
+export ENV_NODE_VERSION=16.16
+export ENV_YARN_VERSION=latest
+env-install
+```
