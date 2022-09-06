@@ -3,6 +3,9 @@
 export ENV_AWS_CLI_VERSION=latest
 export ENV_NODE_VERSION=latest
 export ENV_YARN_VERSION=latest
+export ENV_PYTHON_VERSION=latest
+export ENV_AMPLIFY_CLI_VERSION=latest
+
 env-install
 
 function fail {
@@ -13,7 +16,7 @@ function fail {
 
 . ~/.nvm/nvm.sh
 
-for COMM in aws node yarn
+for COMM in aws node yarn python3 amplify
 do
     type $COMM || fail $COMM failed to install
 done

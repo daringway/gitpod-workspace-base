@@ -1,0 +1,13 @@
+#!/usr/bin/bash
+
+ENV_PYTHON_VERSION=${ENV_PYTHON_VERSION:-latest}
+
+# https://stackoverflow.com/questions/60824700/how-to-install-python3-9-on-linux-ubuntu-terminal
+
+if [[ ${ENV_PYTHON_VERSION} == latest ]] 
+then
+    sudo apt install python3
+else
+    sudo add-apt-repository -y ppa:deadsnakes/ppa
+    sudo apt install python${ENV_PYTHON_VERSION}
+fi
