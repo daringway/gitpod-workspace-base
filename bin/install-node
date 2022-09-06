@@ -4,6 +4,7 @@ ENV_NODE_VERSION=${ENV_NODE_VERSION:-latest}
 ENV_YARN_VERSION=${ENV_YARN_VERSION:-latest}
 
 # Install nvm
+# TODO not update .bashrc
 curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.1/install.sh | bash
 
 source ~/.nvm/nvm.sh
@@ -16,7 +17,7 @@ nvm install ${ENV_NODE_VERSION}
 nvm use ${ENV_NODE_VERSION}
 
 # I think this is needed to get around the .bashrc only being used in execute mode
-echo "nvm use default &>/dev/null" >> ~/.bashrc.d/51-nvm-fix
+echo ". ~/.nvm/nvm-lazy.sh" >> ~/.bashrc.d/53-node
 
 # Install Yarn
 
