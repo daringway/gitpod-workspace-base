@@ -1,6 +1,6 @@
 #!/usr/bin/bash
 
-ENV_NODE_VERSION=${ENV_NODE_VERSION:-latest}
+ENV_NODE_VERSION=${1:-latest}
 
 # Install nvm
 # TODO not update .bashrc
