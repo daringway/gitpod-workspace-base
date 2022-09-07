@@ -27,3 +27,9 @@ then
     echo "**** install-amplify-cli ****"
     install-amplify-cli ${ENV_AMPLIFY_CLI_VERSION}
 fi
+
+if [[ -v ENV_RUBY_VERSION ]]
+then
+   echo "**** install-ruby ****"
+    install-ruby ${ENV_RUBY_VERSION}
+fi

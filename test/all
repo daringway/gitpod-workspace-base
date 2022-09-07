@@ -5,6 +5,7 @@ export ENV_NODE_VERSION=latest
 export ENV_YARN_VERSION=latest
 export ENV_PYTHON_VERSION=latest
 export ENV_AMPLIFY_CLI_VERSION=latest
+export ENV_RUBY_VERSION=3.1.2
 
 env-install
 
@@ -15,8 +16,13 @@ function fail {
 }
 
 . ~/.nvm/nvm.sh
+. ~/.rvm/scripts/rvm
 
-for COMM in aws node yarn python3 amplify
+. ~/.bashrc
+. ~/.profile
+
+
+for COMM in aws node yarn python3 amplify ruby
 do
     type $COMM || fail $COMM failed to install
 done
