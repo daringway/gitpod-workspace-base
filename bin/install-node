@@ -1,7 +1,6 @@
 #!/usr/bin/bash
 
 ENV_NODE_VERSION=${ENV_NODE_VERSION:-latest}
-ENV_YARN_VERSION=${ENV_YARN_VERSION:-latest}
 
 # Install nvm
 # TODO not update .bashrc
@@ -18,16 +17,3 @@ nvm use ${ENV_NODE_VERSION}
 
 # I think this is needed to get around the .bashrc only being used in execute mode
 echo ". ~/.nvm/nvm-lazy.sh" >> ~/.bashrc.d/53-node
-
-# Install Yarn
-
-curl -sS https://dl.yarnpkg.com/debian/pubkey.gpg | sudo apt-key add -
-echo "deb https://dl.yarnpkg.com/debian/ stable main" | sudo tee /etc/apt/sources.list.d/yarn.list
-sudo apt update
-
-if [[ ${ENV_YARN_VERSION} == "latest" ]]
-then
-    sudo apt install --no-install-recommends yarn
-else
-    sudo apt install --no-install-recommends yarn@${ENV_YARN_VERSION}
-fi
