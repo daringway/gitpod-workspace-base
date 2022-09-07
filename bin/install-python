@@ -14,5 +14,6 @@ eval "$(pyenv virtualenv-init -)"' >> ~/.bashrc.d/63-python
 . ~/.bashrc.d/63-python
 
 # TODO, make this dynamic to use ${ENV_PYTHON_VERSION}:latest because local doesn't accept latest like install
-pyenv install ${ENV_PYTHON_VERSION}
-pyenv local ${ENV_PYTHON_VERSION}
+pyenv install --skip-existing ${ENV_PYTHON_VERSION}
+
+echo "pyenv global ${ENV_PYTHON_VERSION}" >> ~/.bashrc.d/63-python
