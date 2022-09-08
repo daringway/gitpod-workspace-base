@@ -3,7 +3,7 @@
 ENV_NODE_VERSION=${1:-latest}
 
 # Install nvm
-# TODO not update .bashrc
+# TODO not update .bashrc and instead use 53-node
 curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.1/install.sh | bash
 
 source ~/.nvm/nvm.sh
@@ -14,6 +14,3 @@ then
 fi
 nvm install ${ENV_NODE_VERSION}
 nvm use ${ENV_NODE_VERSION}
-
-# I think this is needed to get around the .bashrc only being used in execute mode
-echo ". ~/.nvm/nvm-lazy.sh" >> ~/.bashrc.d/53-node
