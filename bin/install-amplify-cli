@@ -1,0 +1,12 @@
+#!/usr/bin/bash
+
+ENV_AMPLIFY_CLI_VERSION=${1:-latest}
+
+. ~/.nvm/nvm.sh
+
+if [[ ${ENV_AMPLIFY_CLI_VERSION} == latest ]] 
+then
+    npm install -g @aws-amplify/cli
+else
+    npm install -g @aws-amplify/cli@${ENV_AMPLIFY_CLI_VERSION}
+fi

@@ -1,0 +1,33 @@
+#!/usr/bin/bash
+
+TEST_PYTHON_VERSION=3.8.6
+
+install-aws-cli latest
+install-node latest
+install-yarn latest
+install-amplify-cli latest
+install-python $TEST_PYTHON_VERSION
+install-ruby 3.1.2
+
+function fail {
+    echo $* 1>&2
+    echo *** FAILED ***
+    exit 1
+}
+
+. ~/.nvm/nvm.sh
+. ~/.rvm/scripts/rvm
+. ~/.bashrc.d/63-python
+
+. ~/.bashrc
+. ~/.profile
+
+
+for COMM in aws node yarn python3 amplify ruby
+do
+    type $COMM || fail $COMM failed to install
+done
+
+[[ "$(python3 --version)" == "Python ${TEST_PYTHON_VERSION}" ]] || fail "python3 failed to install"
+
+echo *** PASSED ***
