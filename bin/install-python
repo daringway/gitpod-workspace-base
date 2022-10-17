@@ -9,11 +9,11 @@ export PYENV_ROOT="$HOME/.pyenv"
 command -v pyenv >/dev/null || export PATH="$PYENV_ROOT/bin:$PATH"
 eval "$(pyenv init -)"
 
-eval "$(pyenv virtualenv-init -)"' >> ~/.bashrc.d/63-python
+eval "$(pyenv virtualenv-init -)"' >> ~/.bashrc
 
-. ~/.bashrc.d/63-python
+source ~/.bashrc
 
 # TODO, make this dynamic to use ${ENV_PYTHON_VERSION}:latest because local doesn't accept latest like install
 pyenv install --skip-existing ${ENV_PYTHON_VERSION}
 
-echo "pyenv global ${ENV_PYTHON_VERSION}" >> ~/.bashrc.d/63-python
+echo "pyenv global ${ENV_PYTHON_VERSION}" >> ~/.bashrc
