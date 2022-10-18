@@ -11,9 +11,9 @@ eval "$(pyenv init -)"
 
 eval "$(pyenv virtualenv-init -)"' >> ~/.bashrc
 
-source ~/.bashrc
+. ~/.bashrc
 
 # TODO, make this dynamic to use ${ENV_PYTHON_VERSION}:latest because local doesn't accept latest like install
-pyenv install --skip-existing ${ENV_PYTHON_VERSION}
+~/.pyenv/bin/pyenv install --skip-existing ${ENV_PYTHON_VERSION}
 
 echo "pyenv global ${ENV_PYTHON_VERSION}" >> ~/.bashrc
