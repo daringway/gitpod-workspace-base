@@ -1,0 +1,16 @@
+#!/usr/bin/bash
+
+# Install IDEA CDK
+mkdir -p ~/.idea/lib/idea-cdk
+pushd ~/.idea/lib/idea-cdk
+npm init --force --yes
+npm install aws-cdk@2.40.0 --save
+popd
+
+# Setup Virtual Environment
+python -m venv venv
+source venv/bin/activate
+pip install -r requirements/dev.txt
+
+export IDEA_DEV_MODE=true
+./idea-admin.sh about

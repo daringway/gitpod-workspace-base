@@ -12,7 +12,7 @@ curl -sSL https://get.rvm.io | bash -s stable
 # . ~/.profile
 # .  ~/.rvm/scripts/rvm
 echo '. /etc/profile.d/rvm.sh' >> ~/.bashrc
-. /etc/profiled/rvm.sh
+. /etc/profile.d/rvm.sh
 
 /usr/local/rvm/bin/rvm install $ENV_RUBY_VERSION
 /usr/local/rvm/bin/rvm alias create default $ENV_RUBY_VERSION
