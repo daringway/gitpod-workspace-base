@@ -12,12 +12,32 @@ RUN apt-get install -y locales \
 ENV LC_ALL en_US.UTF-8
 ENV LC_CTYPE en_US.UTF-8
 
-# Packages required for pyenv
+# Packages
 RUN \
-  apt-get install -y build-essential libssl-dev zlib1g-dev libbz2-dev \
-    libreadline-dev libsqlite3-dev wget curl llvm libncurses5-dev libncursesw5-dev \
-    xz-utils tk-dev libffi-dev liblzma-dev git unzip sudo libsasl2-dev libldap2-dev \
+  apt-get install -y --no-install-recommends \
+    build-essential \
+    ca-certificates \
     libssl-dev \
+    zlib1g-dev \
+    libbz2-dev \
+    libreadline-dev \
+    libsqlite3-dev \
+    wget \
+    curl \
+    llvm \
+    libncurses5-dev \
+    libncursesw5-dev \
+    xz-utils \
+    tk-dev \
+    libffi-dev \
+    liblzma-dev \
+    git \
+    unzip \
+    sudo \
+    libsasl2-dev \
+    libldap2-dev \
+    libssl-dev \
+    gnupg \
     && rm -rf /var/lib/apt/lists/*
 
 # Versions are for IDEA 3.0.0 - Beta.4
