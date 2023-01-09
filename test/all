@@ -1,4 +1,4 @@
-#!/usr/bin/bash
+#!/usr/bin/env bash
 
 TEST_PYTHON_VERSION=3.8.6
 
