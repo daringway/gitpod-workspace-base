@@ -31,7 +31,7 @@ echo "pyenv global ${ENV_PYTHON_VERSION}" >> ~/.bashrc
 echo "Searing for requirements.txt from $(pwd)"
 echo "finding:"
 find / -name requirements.txt 2>/dev/null 
-for DIR in . .devcontainer /com.docker.devenvironments.code /com.docker.devenvironments.code/.devcontainer
+for DIR in . .devcontainer /tmp 
 do
     REQ=$DIR/requirements.txt 
     if [[ -f $REQ ]]
