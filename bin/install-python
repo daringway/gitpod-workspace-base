@@ -29,8 +29,9 @@ echo "pyenv global ${ENV_PYTHON_VERSION}" >> ~/.bashrc
 . ~/.bashrc
 
 echo "Searing for requirements.txt from $(pwd)"
-for REQ in requirements.txt .devcontainer/requirements.txt
+for DIR in . .devcontainer /com.docker.devenvironments.code /com.docker.devenvironments.code/.devcontainer
 do
+    REQ=$DIR/requirements.txt 
     if [[ -f $REQ ]]
     then
         pip install -r $REQ
