@@ -21,7 +21,11 @@ pyenv install --skip-existing ${ENV_PYTHON_VERSION}
 
 # echo "pyenv global ${ENV_PYTHON_VERSION}" >> ~/.bashrc
 
-if [[ -f .devcontainer/requirements.txt ]]
-then
-    pip install -r .devcontainer/requirements.txt
-fi
+echo "Searing for requirements.txt from $(pwd)"
+for REQ in requirements.txt .devcontainer/requirements.txt
+do
+    if [[ -f $REQ ]]
+    then
+        pip install -r $REQ
+    fi
+done
