@@ -3,7 +3,7 @@
 ENV_PYTHON_VERSION=${1:-latest}
 
 # These are for python, should we move them into install-python?
-apt-get install -y build-essential zlib1g-dev
+apt-get install -y build-essential zlib1g-dev libssl-dev libncurses5-dev libsqlite3-dev libreadline-dev libtk8.6 libgdm-dev libdb4o-cil-dev libpcap-dev
 
 curl https://pyenv.run | bash
 
