@@ -19,7 +19,7 @@ eval "$(pyenv init -)"' >> ~/.bashrc
 # TODO, make this dynamic to use ${ENV_PYTHON_VERSION}:latest because local doesn't accept latest like install
 pyenv install --skip-existing ${ENV_PYTHON_VERSION}
 
-# echo "pyenv global ${ENV_PYTHON_VERSION}" >> ~/.bashrc
+echo "pyenv global ${ENV_PYTHON_VERSION}" >> ~/.bashrc
 
 echo "Searing for requirements.txt from $(pwd)"
 for REQ in requirements.txt .devcontainer/requirements.txt
